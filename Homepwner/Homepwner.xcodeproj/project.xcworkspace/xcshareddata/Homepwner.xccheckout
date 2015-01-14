@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0B98017E-B2B4-43BC-AC07-26FC13CC9647</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Homepwner</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>78A0404A-45D4-459B-BB53-39310685319F</key>
+		<string>ssh://github.com/gbaopangbp/iosProgram3-chapter9.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Homepwner/Homepwner.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>78A0404A-45D4-459B-BB53-39310685319F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/gbaopangbp/iosProgram3-chapter9.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78A0404A-45D4-459B-BB53-39310685319F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78A0404A-45D4-459B-BB53-39310685319F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iosProgram3-chapter9</string>
+		</dict>
+	</array>
+</dict>
+</plist>
