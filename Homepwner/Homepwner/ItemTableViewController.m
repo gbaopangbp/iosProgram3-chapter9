@@ -27,6 +27,8 @@
             [[BNRItemStore shareBNRItemStore] createItem];
         }
     }
+    [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+
     return self;
 }
 
@@ -102,25 +104,38 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSMutableArray *array = [[BNRItemStore shareBNRItemStore] items];
+        [array removeObject:[array objectAtIndex:[indexPath row]]];
+        [self.tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    if ([fromIndexPath isEqual:toIndexPath])
+    {
+        return;
+    }
+    NSMutableArray *array = [[BNRItemStore shareBNRItemStore] items];
+    BNRItem *from = [array objectAtIndex:[fromIndexPath row]];
+    [array removeObject:from];
+    
+    [array insertObject:from atIndex:[toIndexPath row]];
+
+    [self.tableView reloadData];
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -142,6 +157,57 @@
 }
 */
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return self.headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.headerView.bounds.size.height;
+}
 
 
+
+- (void)editButton:(id)sender
+{
+    if (self.tableView.editing)
+    {
+        [self.tableView setEditing:NO animated:YES];
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.tableView setEditing:YES animated:YES];
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+    }
+    
+}
+
+- (void)addButton:(id)sender
+{
+    [[BNRItemStore shareBNRItemStore] createItem];
+    [self.tableView reloadData];
+}
+
+-(UIView *)headerView
+{
+    if (!_headerView)
+    {
+//        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 200, 50)];
+        [_headerView setBackgroundColor:[UIColor redColor]];
+        UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 10, 100, 30)];
+        [addButton setTitle:@"Add" forState:UIControlStateNormal];
+        [_headerView addSubview:addButton];
+        [addButton addTarget:self action:@selector(addButton:) forControlEvents:UIControlEventTouchDown];
+        
+        UIButton *editButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 10, 100, 30)];
+        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [_headerView addSubview:editButton];
+        [editButton addTarget:self action:@selector(editButton:) forControlEvents:UIControlEventTouchDown];
+
+    }
+    return _headerView;
+}
 @end

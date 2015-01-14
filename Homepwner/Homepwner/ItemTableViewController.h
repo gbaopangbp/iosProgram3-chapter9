@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ItemTableViewController : UITableViewController
+@property (strong, nonatomic)  UIView *headerView;
+- (void)editButton:(id)sender;
 
+- (void)addButton:(id)sender;
 @end
