@@ -19,7 +19,8 @@
     [self.window makeKeyAndVisible];
     
     ItemTableViewController *itemController = [[ItemTableViewController alloc] init];
-    self.window.rootViewController = itemController;
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:itemController];
+    self.window.rootViewController = navi;
     
     return YES;
 }

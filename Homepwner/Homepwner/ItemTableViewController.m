@@ -9,6 +9,7 @@
 #import "ItemTableViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "DetailViewController.h"
 
 @interface ItemTableViewController ()
 
@@ -26,9 +27,15 @@
         {
             [[BNRItemStore shareBNRItemStore] createItem];
         }
-    }
-    [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        [self.navigationItem setTitle:@"Home"];
+        UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButton:)];
+        UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButton:)];
+        [self.navigationItem setLeftBarButtonItem:left];
+        [self.navigationItem setRightBarButtonItem:right];
 
+    }
     return self;
 }
 
@@ -46,12 +53,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -93,6 +107,17 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailViewController *detail = [[DetailViewController alloc] init];
+    detail.item = [[[BNRItemStore shareBNRItemStore] items] objectAtIndex:[indexPath row]];
+    
+//    [self presentViewController:detail animated:YES completion:nil];
+    [self.navigationController pushViewController:detail animated:YES];
+    
+}
+
 
 
 /*
@@ -137,14 +162,14 @@
 }
 
 
-/*
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
+
 
 /*
 #pragma mark - Navigation
@@ -157,15 +182,19 @@
 }
 */
 
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return self.headerView;
 }
+ */
 
+/*
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return self.headerView.bounds.size.height;
 }
+*/
 
 
 

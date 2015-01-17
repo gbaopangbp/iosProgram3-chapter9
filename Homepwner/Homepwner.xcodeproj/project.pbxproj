@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4619BA241A69F71400EC634F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4619BA221A69F71400EC634F /* DetailViewController.m */; };
+		4619BA251A69F71400EC634F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4619BA231A69F71400EC634F /* DetailViewController.xib */; };
 		463EBC6D1A65231C009C758D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC6C1A65231C009C758D /* Foundation.framework */; };
 		463EBC6F1A65231C009C758D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC6E1A65231C009C758D /* CoreGraphics.framework */; };
 		463EBC711A65231C009C758D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC701A65231C009C758D /* UIKit.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4619BA211A69F71400EC634F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = SOURCE_ROOT; };
+		4619BA221A69F71400EC634F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = SOURCE_ROOT; };
+		4619BA231A69F71400EC634F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		463EBC691A65231C009C758D /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463EBC6C1A65231C009C758D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		463EBC6E1A65231C009C758D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,12 +125,14 @@
 				463EBC7C1A65231C009C758D /* HomeAppDelegate.m */,
 				463EBC9E1A652653009C758D /* BNRItem.h */,
 				463EBC9F1A652653009C758D /* BNRItem.m */,
-				463EBC7E1A65231C009C758D /* Images.xcassets */,
-				463EBC731A65231C009C758D /* Supporting Files */,
 				463EBC9B1A6523D1009C758D /* ItemTableViewController.h */,
 				463EBC9C1A6523D1009C758D /* ItemTableViewController.m */,
 				463EBCA11A6528C2009C758D /* BNRItemStore.h */,
 				463EBCA21A6528C2009C758D /* BNRItemStore.m */,
+				463EBC731A65231C009C758D /* Supporting Files */,
+				4619BA211A69F71400EC634F /* DetailViewController.h */,
+				4619BA221A69F71400EC634F /* DetailViewController.m */,
+				4619BA231A69F71400EC634F /* DetailViewController.xib */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 		463EBC731A65231C009C758D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				463EBC7E1A65231C009C758D /* Images.xcassets */,
 				463EBC741A65231C009C758D /* Homepwner-Info.plist */,
 				463EBC751A65231C009C758D /* InfoPlist.strings */,
 				463EBC781A65231C009C758D /* main.m */,
@@ -236,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				463EBC771A65231C009C758D /* InfoPlist.strings in Resources */,
+				4619BA251A69F71400EC634F /* DetailViewController.xib in Resources */,
 				463EBC7F1A65231C009C758D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +269,7 @@
 				463EBCA01A652653009C758D /* BNRItem.m in Sources */,
 				463EBC9D1A6523D1009C758D /* ItemTableViewController.m in Sources */,
 				463EBC7D1A65231C009C758D /* HomeAppDelegate.m in Sources */,
+				4619BA241A69F71400EC634F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
