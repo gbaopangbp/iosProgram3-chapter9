@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4619BA241A69F71400EC634F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4619BA221A69F71400EC634F /* DetailViewController.m */; };
 		4619BA251A69F71400EC634F /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4619BA231A69F71400EC634F /* DetailViewController.xib */; };
+		461AEB831A738A6C00E73B16 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 461AEB821A738A6C00E73B16 /* BNRImageStore.m */; };
+		461AEB861A7396FD00E73B16 /* OverLayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 461AEB851A7396FD00E73B16 /* OverLayView.m */; };
 		463EBC6D1A65231C009C758D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC6C1A65231C009C758D /* Foundation.framework */; };
 		463EBC6F1A65231C009C758D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC6E1A65231C009C758D /* CoreGraphics.framework */; };
 		463EBC711A65231C009C758D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463EBC701A65231C009C758D /* UIKit.framework */; };
@@ -40,6 +42,10 @@
 		4619BA211A69F71400EC634F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = SOURCE_ROOT; };
 		4619BA221A69F71400EC634F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = SOURCE_ROOT; };
 		4619BA231A69F71400EC634F /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		461AEB811A738A6C00E73B16 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		461AEB821A738A6C00E73B16 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
+		461AEB841A7396FD00E73B16 /* OverLayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverLayView.h; path = ../OverLayView.h; sourceTree = "<group>"; };
+		461AEB851A7396FD00E73B16 /* OverLayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverLayView.m; path = ../OverLayView.m; sourceTree = "<group>"; };
 		463EBC691A65231C009C758D /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463EBC6C1A65231C009C758D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		463EBC6E1A65231C009C758D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +127,8 @@
 		463EBC721A65231C009C758D /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				461AEB841A7396FD00E73B16 /* OverLayView.h */,
+				461AEB851A7396FD00E73B16 /* OverLayView.m */,
 				463EBC7B1A65231C009C758D /* HomeAppDelegate.h */,
 				463EBC7C1A65231C009C758D /* HomeAppDelegate.m */,
 				463EBC9E1A652653009C758D /* BNRItem.h */,
@@ -129,10 +137,12 @@
 				463EBC9C1A6523D1009C758D /* ItemTableViewController.m */,
 				463EBCA11A6528C2009C758D /* BNRItemStore.h */,
 				463EBCA21A6528C2009C758D /* BNRItemStore.m */,
-				463EBC731A65231C009C758D /* Supporting Files */,
 				4619BA211A69F71400EC634F /* DetailViewController.h */,
 				4619BA221A69F71400EC634F /* DetailViewController.m */,
 				4619BA231A69F71400EC634F /* DetailViewController.xib */,
+				461AEB811A738A6C00E73B16 /* BNRImageStore.h */,
+				461AEB821A738A6C00E73B16 /* BNRImageStore.m */,
+				463EBC731A65231C009C758D /* Supporting Files */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -266,8 +276,10 @@
 			files = (
 				463EBCA31A6528C2009C758D /* BNRItemStore.m in Sources */,
 				463EBC791A65231C009C758D /* main.m in Sources */,
+				461AEB831A738A6C00E73B16 /* BNRImageStore.m in Sources */,
 				463EBCA01A652653009C758D /* BNRItem.m in Sources */,
 				463EBC9D1A6523D1009C758D /* ItemTableViewController.m in Sources */,
+				461AEB861A7396FD00E73B16 /* OverLayView.m in Sources */,
 				463EBC7D1A65231C009C758D /* HomeAppDelegate.m in Sources */,
 				4619BA241A69F71400EC634F /* DetailViewController.m in Sources */,
 			);

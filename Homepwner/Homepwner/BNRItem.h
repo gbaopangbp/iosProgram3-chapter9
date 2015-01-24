@@ -13,6 +13,7 @@
 @property(nonatomic,strong)NSString *serialNumber;
 @property(nonatomic)int valueInDollars;
 @property(nonatomic,strong)NSDate *dateCreated;
+@property(nonatomic,strong)NSString *imageKey;
 
 +(id)randomItem;
 -(id)init;

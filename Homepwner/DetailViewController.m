@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "BNRImageStore.h"
+#import "OverLayView.h"
 
 @interface DetailViewController ()
 
@@ -51,6 +53,8 @@
     [data setTimeStyle:NSDateFormatterNoStyle];
     [data setDateStyle:NSDateFormatterShortStyle];
     [self.dataField setText:[data stringFromDate:_item.dateCreated]];
+    
+    [self.imageView setImage:[[BNRImageStore BNRImageStoreShare] getImageForKey:self.item.imageKey]];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -76,4 +80,53 @@
 }
 
 
+- (IBAction)takePic:(id)sender
+{
+    UIImagePickerController *imagePick = [[UIImagePickerController alloc] init];
+    //设置是否允许用户自己编辑图片
+    imagePick.allowsEditing = YES;
+
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePick setSourceType:UIImagePickerControllerSourceTypeCamera];
+        //只有拍照时才可以设置下面的悬浮view，否则会抛出异常
+        OverLayView *view = [[OverLayView alloc] initWithFrame:CGRectMake(200, 200, 10, 10)];
+        imagePick.cameraOverlayView = view;
+    }
+    else
+    {
+        [imagePick setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    imagePick.delegate = self;
+    [self presentViewController:imagePick animated:YES completion:nil];
+}
+
+- (IBAction)deletePic:(id)sender
+{
+    if (self.item.imageKey)
+    {
+        [[BNRImageStore BNRImageStoreShare] removeImageForKey:self.item.imageKey];
+        [self.imageView setImage:nil];
+    }
+}
+
+#pragma mark-uiimagepickercontroller 协议
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+//    [self.imageView setImage:image];
+    CFUUIDRef newID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newString = CFUUIDCreateString(kCFAllocatorDefault, newID);
+    NSString *key = (__bridge NSString*)newString;
+    self.item.imageKey = key;
+    [[BNRImageStore BNRImageStoreShare] setImage:image forKey:key];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+}
 @end
