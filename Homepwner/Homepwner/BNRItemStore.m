@@ -34,8 +34,13 @@
     self = [super init];
     if (self)
     {
-        self.items = [[NSMutableArray alloc] init];
+        NSString *path = [self getArcPath];
+        _items = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (!_items) {
+            _items = [[NSMutableArray alloc] init];
+        }
     }
+    NSLog(@"hhhh%@",_items);
     return self;
 }
 
@@ -55,10 +60,25 @@
 //    {
 //        _items = [[NSMutableArray alloc] init];
 //    }
-    BNRItem *item = [BNRItem randomItem];
+//    BNRItem *item = [BNRItem randomItem];
+    BNRItem *item = [[BNRItem alloc] init];
     [_items addObject:item];
     NSLog(@"crezte num:%d",[_items count]);
     return item;
+}
+
+-(NSString *)getArcPath
+{
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [array objectAtIndex:0];
+    return [path stringByAppendingString:@"/bnritemarc"];
+}
+
+
+-(void)saveItems
+{
+    NSString *path = [self getArcPath];
+    [NSKeyedArchiver archiveRootObject:self.items toFile:path];
 }
 
 

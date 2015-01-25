@@ -10,6 +10,11 @@
 
 @implementation BNRItem
 
+//这个文件的保存方式，使用归档和解档方式保存
+//图片使用写文件方式，
+//还可以使用core data
+//简单的设置可以使用偏好设置保存
+
 +(id)randomItem
 {
     NSArray *nameArray = @[@"LiLei",@"HanMeiMei",@"Lucy"];
@@ -60,5 +65,30 @@
 {
     return [NSString stringWithFormat:@"name:%@,value:%d,serialNumber:%@",self.itemName,self.valueInDollars,self.serialNumber];
 }
+
+#pragma mark-nscoding协议
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.itemName forKey:@"name"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serial"];
+    [aCoder encodeObject:self.dateCreated forKey:@"date"];
+    [aCoder encodeObject:self.imageKey forKey:@"key"];
+    [aCoder encodeInt:self.valueInDollars forKey:@"value"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        [self setItemName:[aDecoder decodeObjectForKey:@"name"]];
+        [self setSerialNumber:[aDecoder decodeObjectForKey:@"serial"]];
+        [self setDateCreated:[aDecoder decodeObjectForKey:@"date"]];
+        [self setImageKey:[aDecoder decodeObjectForKey:@"key"]];
+        [self setValueInDollars:[aDecoder decodeIntForKey:@"value"]];
+    }
+    return self;
+}
+
 
 @end

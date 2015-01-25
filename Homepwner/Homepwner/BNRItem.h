@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject<NSCopying>
 @property(nonatomic,strong)NSString *itemName;
 @property(nonatomic,strong)NSString *serialNumber;
 @property(nonatomic)int valueInDollars;

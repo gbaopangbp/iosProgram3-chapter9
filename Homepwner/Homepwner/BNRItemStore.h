@@ -16,4 +16,7 @@
 -(NSArray *)allItems;
 -(BNRItem *)createItem;
 
+-(void)saveItems;
+
+
 @end

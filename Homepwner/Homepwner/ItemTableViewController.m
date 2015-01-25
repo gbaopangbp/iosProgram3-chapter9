@@ -23,10 +23,10 @@
     if (self)
     {
         // Custom initialization
-        for (int i = 0; i < 5; i++)
-        {
-            [[BNRItemStore shareBNRItemStore] createItem];
-        }
+//        for (int i = 0; i < 5; i++)
+//        {
+//            [[BNRItemStore shareBNRItemStore] createItem];
+//        }
         [self.tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         [self.navigationItem setTitle:@"Home"];
@@ -66,6 +66,13 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[BNRItemStore shareBNRItemStore] saveItems];
+    
 }
 
 #pragma mark - Table view data source
